@@ -15,6 +15,8 @@ stack build
 
 Wait a moment.
 
+You can add your own rules in file `.extraRules.gfw`.
+
 ### dnsmasq usage:
 
 `stack exec gfwlist2x -- -d 8.8.8.8#53 -i gfwlist -p dnsmasq_list.conf`
