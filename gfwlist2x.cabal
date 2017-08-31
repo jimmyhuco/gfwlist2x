@@ -34,6 +34,7 @@ executable gfwlist2x
                      , base64-bytestring
                      , http-client
                      , http-client-tls
+                     , directory
   default-language:    Haskell2010
 
 test-suite gfwlist2x-test
