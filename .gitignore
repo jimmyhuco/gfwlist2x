@@ -1,3 +1,5 @@
 .stack-work/
 .extraRules.gfw
 dns*
+.idea
+*.iml
