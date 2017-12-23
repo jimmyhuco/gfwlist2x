@@ -7,7 +7,7 @@ import GFW.Types
 import Text.ParserCombinators.Parsec
 
 parseGFW :: String -> Either ParseError [Field]
-parseGFW input = parse gfwRules "" input
+parseGFW = parse gfwRules ""
 
 gfwRules :: Parser [Field]
 gfwRules = spaces *> many field <* spaces

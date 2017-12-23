@@ -31,7 +31,7 @@ process (Args "dnsmasq" d i p) = do
     if exists
       then readFile extraFilename
       else return ""
-  generate p $ generateConf ((decode' encoded) ++ usersRules) d i
+  generate p $ generateConf (decode' encoded ++ usersRules) d i
   where
     decode' bs = B8.unpack $ decodeLenient $ L.toStrict bs
     extraFilename = ".extraRules.gfw"
@@ -40,7 +40,7 @@ process (Args c _ _ _) =
   putStrLn ("Converter " ++ c ++ " is not supported!") >> exitFailure
 
 generate :: String -> String -> IO ()
-generate path = writeFile path
+generate = writeFile
 
 main :: IO ()
 main = parseOptions >>= process >> exitSuccess

@@ -13,8 +13,6 @@ generateConf input dnsServer ipsetName = intercalate "\n" domains
       case parseGFW input of
         Left _ -> ["parse error!"]
         Right fields -> domains' $ nub fields
-    domains' xs = foldr addDomain [] xs
-    addDomain (Domain x) result =
-      concat ["server=/.", x, "/", dnsServer, "\nipset=/.", x, "/", ipsetName] :
-      result
+    domains' = foldr addDomain []
+    addDomain (Domain x) result = concat ["server=/.", x, "/", dnsServer, "\nipset=/.", x, "/", ipsetName] : result
     addDomain _ result = result
