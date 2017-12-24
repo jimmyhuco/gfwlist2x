@@ -2,7 +2,6 @@ module GFW.Parser
   ( parseGFW
   ) where
 
-import Data.Monoid
 import GFW.Types
 import Text.ParserCombinators.Parsec
 

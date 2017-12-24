@@ -3,3 +3,6 @@
 dns*
 .idea
 *.iml
+.importify/
+out/
+cabal.config
