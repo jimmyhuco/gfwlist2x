@@ -25,13 +25,13 @@ downloadGFWList = do
 
 process :: Args -> IO ()
 process (Args "dnsmasq" d i p) = do
-  encoded <- downloadGFWList
-  exists <- doesFileExist extraFilename
-  usersRules <-
-    if exists
-      then readFile extraFilename
-      else return ""
-  generate p $ generateConf (decode' encoded ++ usersRules) d i
+    encoded <- downloadGFWList
+    exists <- doesFileExist extraFilename
+    usersRules <-
+        if exists
+            then readFile extraFilename
+            else return ""
+    generate p $ generateConf (decode' encoded ++ usersRules) d i
   where
     decode' bs = B8.unpack $ decodeLenient $ L.toStrict bs
     extraFilename = ".extraRules.gfw"

@@ -1,6 +1,6 @@
 module GFW.Parser
-  ( parseGFW
-  ) where
+    ( parseGFW
+    ) where
 
 import GFW.Types
 import Text.ParserCombinators.Parsec

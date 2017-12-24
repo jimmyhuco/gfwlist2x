@@ -7,21 +7,25 @@ data Args = Args
   { converter :: String
   , dnsServer :: String
   , ipsetName :: String
-  , opath :: String
+  , opath     :: String
   }
 
 args :: Parser Args
 args =
-  Args <$>
-  strOption
-    (long "convert" <> short 'c' <> metavar "name" <> help "Convert name" <>
-     showDefault <>
-     value "dnsmasq") <*>
-  strOption
-    (long "dns" <> short 'd' <> metavar "address#port" <>
-     help "DNS server address with port. e.g. 8.8.8.8#53") <*>
-  strOption (long "ipset" <> short 'i' <> metavar "name" <> help "dnsmasq ipset name") <*>
-  strOption (long "path" <> short 'p' <> metavar "filepath" <> help "Output File path. e.g. dnsmasq_list.conf")
+    Args <$>
+    strOption
+        (long "convert" <> short 'c' <> metavar "name" <> help "Convert name" <>
+         showDefault <>
+         value "dnsmasq") <*>
+    strOption
+        (long "dns" <> short 'd' <> metavar "address#port" <>
+         help "DNS server address with port. e.g. 8.8.8.8#53") <*>
+    strOption
+        (long "ipset" <> short 'i' <> metavar "name" <>
+         help "dnsmasq ipset name") <*>
+    strOption
+        (long "path" <> short 'p' <> metavar "filepath" <>
+         help "Output File path. e.g. dnsmasq_list.conf")
 
 options :: ParserInfo Args
 options =
